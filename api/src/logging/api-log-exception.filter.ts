@@ -32,7 +32,7 @@ export class ApiLogExceptionFilter implements ExceptionFilter {
         const durationMs = 0;
 
         await this.apiLogService.write({
-            ts: new Date(),
+            ts: new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul', hour12: false }),
             method: (req as any).method,
             path: req.originalUrl ?? (req as any).url,
             status: statusCode,

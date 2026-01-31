@@ -3,7 +3,7 @@ import { MongoClient } from 'mongodb';
 import { ConfigService } from '@nestjs/config';
 
 export type ApiLogDoc = {
-    ts: Date;
+    ts: string;
     method: string;
     path: string;
     status: number;

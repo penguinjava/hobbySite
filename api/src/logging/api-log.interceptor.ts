@@ -21,7 +21,7 @@ export class ApiLogInterceptor implements NestInterceptor {
                     ? String((data as any).message) : 'OK';
 
                 await this.apiLogService.write({
-                    ts: new Date(),
+                    ts: new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul', hour12: false }),
                     method: (req as any).method,
                     path: req.originalUrl ?? (req as any).url,
                     status: res.statusCode,

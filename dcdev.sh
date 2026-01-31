@@ -16,9 +16,9 @@ Usage:
   ./dcdev.sh start [service]
   ./dcdev.sh ps
   ./dcdev.sh pull
-  ./dcdev.sh rmi            # remove compose-built images (safe)
-  ./dcdev.sh prune          # cleanup unused images/containers/networks (safe-ish)
-  ./dcdev.sh prune-all      # prune including volumes (DANGER: deletes DB data)
+  ./dcdev.sh rmi
+  ./dcdev.sh prune
+  ./dcdev.sh prune-all
 Examples:
   ./dcdev.sh up -d --build
   ./dcdev.sh logs db

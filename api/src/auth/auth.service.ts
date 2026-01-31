@@ -27,15 +27,14 @@ export class AuthService {
       const hashedPassword = await bcrypt.hash(signupDto.userPw, 10);
 
       const MEMBER_CODE = this.configService.get<string>('MEMBER_CODE');
-      const ADMIN_CODE = this.configService.get<string>('ADMIN_CODE');
 
       const memberCode = signupDto.memberCode;
 
-      if(MEMBER_CODE !== memberCode && ADMIN_CODE !== memberCode){
+      if(MEMBER_CODE !== memberCode){
           throw new ConflictException('올바른  코드가 아닙니다.')
       }
 
-      const isAdmin = ADMIN_CODE === memberCode;
+      const isAdmin = MEMBER_CODE !== memberCode;
 
       const newUser = this.userRepository.create({
           loginId: signupDto.loginId,
